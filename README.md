@@ -42,7 +42,7 @@ Template de base pour démarrer un projet front avec une pré-configuration de w
 
 ## Dépendances pré-installées
 
-Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.json et souhaités personnaliser vos dépendances. Pour l'installation, reportez-vous à la section installation.
+Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.json et souhaité personnaliser vos dépendances. Pour l'installation, reportez-vous à la section [installation](https://github.com/tasmim-concept/front-project/blob/add-structure/README.md#installation-du-template).
 
 ### Dev-dependencies
 
