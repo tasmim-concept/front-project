@@ -29,7 +29,7 @@ Template de base pour démarrer un projet front avec une pré-configuration de w
             |-- img/
             |-- fonts/
     public/
-        |-- assets/ (auto-generated)
+        |-- assets/ (auto-generated content)
             |-- js/
                 |-- index.min.jsx
             |-- css/
@@ -52,7 +52,7 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
     npm i -D webpack-dev-server
 
 #### CSS
-	npm i -D css-loader //comprend le css
+    npm i -D css-loader //comprend le css
     npm i -D sass-loader //convertis le sass/scss en css
     npm i -D style-loader //écris le css dans le head
     npm i -D postcss-loader //optimise le css
