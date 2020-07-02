@@ -95,4 +95,4 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
 
 ### Depedencies
 
-    npm i jquery (optionnel parce que installé via les autres dépendences)
+    npm i jquery (optionnel parce que installé via les autres dépendances)
