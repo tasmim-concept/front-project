@@ -42,7 +42,7 @@ Template de base pour démarrer un projet front avec une pré-configuration de w
 
 ## Dépendances pré-installées
 
-Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.json et souhaité personnaliser vos dépendances. Pour l'installation, reportez-vous à la section [installation](https://github.com/tasmim-concept/front-project/blob/add-structure/README.md#installation-du-template).
+Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.json et souhaitez personnaliser vos dépendances. Pour l'installation, reportez-vous à la section [installation](https://github.com/tasmim-concept/front-project/blob/add-structure/README.md#installation-du-template).
 
 ### Dev-dependencies
 
@@ -52,11 +52,11 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
     npm i -D webpack-dev-server
 
 #### CSS
-    npm i -D css-loader //comprend le css
-    npm i -D sass-loader //convertis le sass/scss en css
-    npm i -D style-loader //écris le css dans le head
-    npm i -D postcss-loader //optimise le css
-    npm i -D mini-css-extract-plugin //écris le css dans un fichier css
+    npm i -D css-loader (comprend le css)
+    npm i -D sass-loader (convertis le sass/scss en css)
+    npm i -D style-loader (écris le css dans le head)
+    npm i -D postcss-loader (optimise le css)
+    npm i -D mini-css-extract-plugin (écris le css dans un fichier css)
 
 #### JS
     npm i -D babel-loader
@@ -82,7 +82,7 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
 
     npm i -D @babel/core
     npm i -D eslint
-    npm i -D standard //eslint dependence
+    npm i -D standard (dépendance eslint)
     npm i -D babel-eslint
     npm i -D imagemin
     npm i -D imagemin-gifsicle
@@ -95,4 +95,4 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
 
 ### Depedencies
 
-    npm i jquery (optionnel parce que installé via les autres dépendances)
+    npm i jquery (optionnel parce que pré-installé via les autres dépendances)
