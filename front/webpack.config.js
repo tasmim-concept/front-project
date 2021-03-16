@@ -14,10 +14,12 @@ const cssLoaders = [
     {
         loader: 'postcss-loader',
         options: {
-            plugins: [
-                require('autoprefixer'),
-                require('cssnano')
-            ]
+            postcssOptions: {
+                plugins: [
+                    require('autoprefixer'),
+                    require('cssnano')
+                ]
+            }
         }
     },
     'sass-loader'
@@ -26,7 +28,7 @@ const cssLoaders = [
 const config = {
     context: path.resolve(__dirname, 'src'),
     entry: {
-        index: ['./js/index.jsx', './css/style.scss'],
+        index: ['./js/index.jsx', './css/style.scss']
         // admin: ['./js/admin.jsx'] //e.g. to add others files
     },
     resolve: {
@@ -63,7 +65,7 @@ const config = {
                             limit: 8192,
                             name: '[name].[hash:8].[ext]',
                             outputPath: 'img'
-                        },
+                        }
                     },
                     {
                         loader: 'img-loader',
@@ -93,7 +95,7 @@ const config = {
                             ]
                         }
                     }
-                ],
+                ]
             }
         ]
     },
@@ -108,10 +110,10 @@ const config = {
         contentBase: path.resolve(__dirname, '../public'),
         overlay: false,
         hot: true,
-        port: 8000,
+        port: 3000,
         historyApiFallback: {
             rewrites: [
-                { from: /^\/$/, to: 'index.html' },
+                { from: /^\/$/, to: 'index.html' }
             ]
         }
     },
@@ -120,7 +122,7 @@ const config = {
 
 module.exports = (env, argv) => {
     if (argv.mode === 'development') {
-        config.plugins.push(new webpack.HotModuleReplacementPlugin());
+        config.plugins.push(new webpack.HotModuleReplacementPlugin())
         config.module.rules.push({
             test: /\.(sc|c|sa)ss$/i,
             use: ['style-loader', ...cssLoaders]
@@ -145,7 +147,7 @@ module.exports = (env, argv) => {
         }))
         config.plugins.push(new CleanWebpackPlugin({
             verbose: true,
-            cleanOnceBeforeBuildPatterns: ['**/*', '!uploads/**'],
+            cleanOnceBeforeBuildPatterns: ['**/*', '!uploads/**']
         }))
     }
 
