@@ -2,6 +2,7 @@ const path = require('path')
 const webpack = require('webpack')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 
 const cssLoaders = [
     {
@@ -44,7 +45,7 @@ const config = {
             {
                 test: /\.(jsx?)$/,
                 exclude: '/(node_modules|bower_components)/',
-                use: ['react-hot-loader/webpack', 'babel-loader', 'eslint-loader']
+                use: ['react-hot-loader/webpack', 'babel-loader']
             },
             {
                 test: /\.(woff2?|ttf|otf|eot)$/,
@@ -100,7 +101,8 @@ const config = {
         new webpack.ProvidePlugin({
             $: 'jquery',
             jQuery: 'jquery'
-        })
+        }),
+        new ESLintPlugin()
     ],
     devServer: {
         contentBase: path.resolve(__dirname, '../public'),

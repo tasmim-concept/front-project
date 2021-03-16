@@ -76,14 +76,14 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
 
 #### Optimisation
     npm i -D clean-webpack-plugin
-    npm i -D eslint-loader (assure que le js est bien écrit)
+    npm i -D eslint-webpack-plugin (assure que le js est bien écrit)
 
 ### Inter-Depedencies
 
     npm i -D @babel/core
     npm i -D eslint
     npm i -D standard (dépendance eslint)
-    npm i -D babel-eslint
+    npm i -D @babel/eslint-parser
     npm i -D imagemin
     npm i -D imagemin-gifsicle
     npm i -D imagemin-mozjpeg
@@ -92,6 +92,7 @@ Les commandes ne sont pas à réécrire sauf si vous effacez le fichier package.
     npm i -D autoprefixer
     npm i -D cssnano
     npm i -D node-sass
+    npm i -D postcss
 
 ### Depedencies
 
