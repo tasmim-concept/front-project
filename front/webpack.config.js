@@ -107,14 +107,23 @@ const config = {
         new ESLintPlugin()
     ],
     devServer: {
-        contentBase: path.resolve(__dirname, '../public'),
-        overlay: false,
-        hot: true,
+        static: {
+            directory: path.resolve(__dirname, '../public'),
+        },
+        compress: false,
         port: 3000,
         historyApiFallback: {
             rewrites: [
                 { from: /^\/$/, to: 'index.html' }
             ]
+        },
+        open: true,
+        client: {
+            overlay: {
+                errors: true,
+                warnings: false
+            },
+            progress: true
         }
     },
     devtool: 'eval-cheap-module-source-map'
