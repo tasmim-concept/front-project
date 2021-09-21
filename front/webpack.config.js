@@ -39,7 +39,7 @@ const config = {
     },
     output: {
         path: path.resolve(__dirname, '../public/assets'),
-        publicPath: 'assets/',
+        publicPath: '/assets/',
         filename: 'js/[name].min.js'
     },
     module: {
@@ -51,51 +51,17 @@ const config = {
             },
             {
                 test: /\.(woff2?|ttf|otf|eot)$/,
-                options: {
-                    outputPath: 'fonts'
-                },
-                loader: 'file-loader'
+                type: 'asset/resource',
+                generator: {
+                    filename: 'fonts/[hash][ext]'
+                }
             },
             {
                 test: /\.(svg|png|jpe?g|gif)$/,
-                use: [
-                    {
-                        loader: 'url-loader',
-                        options: {
-                            limit: 8192,
-                            name: '[name].[hash:8].[ext]',
-                            outputPath: 'img'
-                        }
-                    },
-                    {
-                        loader: 'img-loader',
-                        options: {
-                            outputPath: 'img',
-                            enabled: true,
-                            plugins: [
-                                require('imagemin-gifsicle')({
-                                    interlaced: false
-                                }),
-                                require('imagemin-mozjpeg')({
-                                    progressive: true,
-                                    arithmetic: false
-                                }),
-                                require('imagemin-pngquant')({
-                                    floyd: 0.5,
-                                    speed: 2
-                                }),
-                                require('imagemin-svgo')({
-                                    plugins: [
-                                        { removeTitle: true },
-                                        { removeDesc: true },
-                                        { removeXMLNS: false },
-                                        { convertPathData: false }
-                                    ]
-                                })
-                            ]
-                        }
-                    }
-                ]
+                type: 'asset',
+                generator: {
+                    filename: 'img/[name][hash:8][ext]'
+                }
             }
         ]
     },
@@ -123,7 +89,7 @@ const config = {
                 errors: true,
                 warnings: false
             },
-            progress: true
+            progress: false
         }
     },
     devtool: 'eval-cheap-module-source-map'
