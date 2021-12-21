@@ -47,21 +47,56 @@ const config = {
             {
                 test: /\.(jsx?)$/,
                 exclude: '/(node_modules|bower_components)/',
-                use: ['react-hot-loader/webpack', 'babel-loader']
+                use: ['react-hot-loader/webpack', 'babel-loader', 'eslint-loader']
             },
             {
                 test: /\.(woff2?|ttf|otf|eot)$/,
-                type: 'asset/resource',
-                generator: {
-                    filename: 'fonts/[hash][ext]'
-                }
+                options: {
+                    outputPath: 'fonts'
+                },
+                loader: 'file-loader'
             },
             {
                 test: /\.(svg|png|jpe?g|gif)$/,
-                type: 'asset',
-                generator: {
-                    filename: 'img/[name][hash:8][ext]'
-                }
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: '[name].[hash:8].[ext]',
+                            outputPath: 'img',
+                            esModule: false
+                        },
+                    },
+                    {
+                        loader: 'img-loader',
+                        options: {
+                            outputPath: 'img',
+                            enabled: true,
+                            plugins: [
+                                require('imagemin-gifsicle')({
+                                    interlaced: false
+                                }),
+                                require('imagemin-mozjpeg')({
+                                    progressive: true,
+                                    arithmetic: false
+                                }),
+                                require('imagemin-pngquant')({
+                                    floyd: 0.5,
+                                    speed: 2
+                                }),
+                                require('imagemin-svgo')({
+                                    plugins: [
+                                        { removeTitle: true },
+                                        { removeDesc: true },
+                                        { removeXMLNS: false },
+                                        { convertPathData: false }
+                                    ]
+                                })
+                            ]
+                        }
+                    }
+                ],
             }
         ]
     },
