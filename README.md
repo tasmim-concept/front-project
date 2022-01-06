@@ -31,7 +31,7 @@ Template de base pour démarrer un projet front avec une pré-configuration de w
     public/
         |-- assets/ (auto-generated content)
             |-- js/
-                |-- index.min.jsx
+                |-- index.min.js
             |-- css/
                 |-- index.min.css
             |-- img/
