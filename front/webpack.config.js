@@ -8,7 +8,7 @@ const cssLoaders = [
     {
         loader: 'css-loader',
         options: {
-            importLoaders: 1
+            importLoaders: 1,
         }
     },
     {
@@ -29,7 +29,6 @@ const config = {
     context: path.resolve(__dirname, 'src'),
     entry: {
         index: ['./js/index.jsx', './css/style.scss']
-        // admin: ['./js/admin.jsx'] //e.g. to add others files
     },
     resolve: {
         extensions: ['.jsx', '.js', '.json'],
@@ -108,23 +107,19 @@ const config = {
         new ESLintPlugin()
     ],
     devServer: {
-        static: {
-            directory: path.resolve(__dirname, '../public'),
-        },
-        compress: false,
+        contentBase: path.resolve(__dirname, '../public'),
+        overlay: true,
+        hot: true,
         port: 3000,
+        open: true,
+        overlay: {
+            errors: true,
+            warnings: false
+        },
         historyApiFallback: {
             rewrites: [
                 { from: /^\/$/, to: 'index.html' }
             ]
-        },
-        open: true,
-        client: {
-            overlay: {
-                errors: true,
-                warnings: false
-            },
-            progress: false
         }
     },
     devtool: 'eval-cheap-module-source-map'
@@ -142,7 +137,7 @@ module.exports = (env, argv) => {
     if (argv.mode === 'production') {
         config.module.rules.push({
             test: /\.(sc|c|sa)ss$/i,
-            use: [ // order important
+            use: [
                 {
                     loader: MiniCssExtractPlugin.loader,
                     options: {

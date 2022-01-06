@@ -5,11 +5,11 @@
   "main": "index.jsx",
   "scripts": {
     "watch": "webpack --mode=development --watch",
-    "start": "webpack serve --mode=development",
+    "start": "webpack-dev-server --mode=development",
     "build": "webpack --mode=production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Amina Seraoui - Tasmim Concept",
+  "author": "Amina Seraoui",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.10.2",
